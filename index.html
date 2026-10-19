@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico: O Poder dos Produtos Naturais para Performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Versões fixadas e 100% compatíveis do Chart.js e Datalabels -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #001219;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 350px; }
+        }
+        .text-balance { text-wrap: balance; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 1.25rem;
+            left: -0.45rem;
+            width: 0.875rem;
+            height: 0.875rem;
+            border-radius: 9999px;
+            background-color: #e9d8a6;
+            border: 2px solid #0a9396;
+        }
+        .section-title {
+            color: #005f73;
+            font-weight: 700;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        .accent-bg { background-color: #005f73; }
+        .accent-text { color: #e9d8a6; }
+        .highlight-text { color: #0a9396; }
+        .warning-card {
+            background-color: #fff1f2;
+            border-left: 5px solid #ef4444;
+        }
+        .efficacy-table th, .efficacy-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .efficacy-table th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .efficacy-table tbody tr:last-child td { border-bottom: none; }
+        .efficacy-table tbody tr:hover { background-color: #f8fafc; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- CABEÇALHO -->
+    <header class="accent-bg text-white py-12 px-4 relative shadow-lg">
+        <div class="max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
+            <h1 class="text-4xl md:text-5xl font-bold accent-text text-balance leading-tight">O Guia Definitivo de Produtos Naturais para Performance</h1>
+            <p class="mt-4 text-lg max-w-3xl mx-auto text-balance text-gray-100">Um infográfico interativo sobre como produtos naturais podem otimizar o ganho de massa muscular, energia e controle de estresse, com base em evidências científicas.</p>
+            <div class="mt-8 flex flex-col items-center">
+                <img src="https://i.ibb.co/B2TjgnRT/IMG-4228.jpg" alt="Foto de Perfil" class="w-28 h-28 rounded-full border-4 border-white shadow-lg object-cover">
+                <a href="https://www.linkedin.com/in/edsonfabiosousa/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center bg-blue-600 text-white font-bold py-2.5 px-6 rounded-full shadow-md hover:bg-blue-700 transition duration-300 text-sm">
+                    <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    Conecte-se no LinkedIn
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <!-- PILARES -->
+        <section id="pillars" class="mb-16 mt-4">
+            <h2 class="text-3xl section-title text-center mb-8">Os Pilares do Desempenho Físico</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="card border-t-4 border-teal-600">
+                    <div class="text-5xl mb-4">🏋️</div>
+                    <h3 class="text-2xl font-bold mb-2">Ganho de Massa Muscular</h3>
+                    <p class="text-gray-600 text-sm">Suplementos que apoiam a síntese proteica, força e recuperação muscular.</p>
+                </div>
+                <div class="card border-t-4 border-amber-500">
+                    <div class="text-5xl mb-4">⚡️</div>
+                    <h3 class="text-2xl font-bold mb-2">Energia e Disposição</h3>
+                    <p class="text-gray-600 text-sm">Compostos que melhoram a estamina, oxigenação e vitalidade para treinos intensos.</p>
+                </div>
+                <div class="card border-t-4 border-cyan-600">
+                    <div class="text-5xl mb-4">🧘</div>
+                    <h3 class="text-2xl font-bold mb-2">Controle de Fadiga e Estresse</h3>
+                    <p class="text-gray-600 text-sm">Adaptógenos que regulam o cortisol e otimizam a recuperação mental e física.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRÁFICO 1: NÍVEL DE EVIDÊNCIA -->
+        <section id="evidence" class="mb-16">
+            <h2 class="text-3xl section-title text-center mb-2">Nível de Evidência: O Que Realmente Funciona?</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8 text-balance">Classificação dos produtos naturais baseada na solidez de estudos clínicos em humanos para ganho de massa, energia e controle do estresse.</p>
+            <div class="card">
+                <div class="chart-container" style="height: 420px; max-height: 480px;">
+                    <canvas id="evidenceChart"></canvas>
+                </div>
+                <p class="mt-4 text-xs text-gray-500 text-center">Pontuação de 0 a 10 baseada na consistência de ensaios clínicos em humanos. Ashwagandha, Pó de Beterraba e Mel lideram em respaldo científico.</p>
+            </div>
+        </section>
+        
+        <!-- GRÁFICOS DE ROSCA: MASSA MUSCULAR -->
+        <section id="muscle" class="mb-16">
+            <h2 class="text-3xl section-title text-center mb-8">Foco: Ganho de Massa Muscular</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 highlight-text">Ashwagandha</h3>
+                    <p class="text-gray-600 text-sm mb-4">A mais estudada para força e hipertrofia. Reduz o cortisol, otimizando o ambiente anabólico.</p>
+                    <div class="chart-container" style="height: 240px;">
+                        <canvas id="ashwagandhaChart"></canvas>
+                    </div>
+                    <p class="mt-3 text-xs text-gray-500 text-center">Forte impacto no ganho de força combinada ao treino resistido.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 highlight-text">Feno Grego</h3>
+                    <p class="text-gray-600 text-sm mb-4">Auxilia na força e composição corporal, além de melhorar a sensibilidade à insulina.</p>
+                    <div class="chart-container" style="height: 240px;">
+                        <canvas id="fenugreekChart"></canvas>
+                    </div>
+                    <p class="mt-3 text-xs text-gray-500 text-center">Favorece a retenção de massa magra e controle glicêmico.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 highlight-text">Tongkat Ali</h3>
+                    <p class="text-gray-600 text-sm mb-4">Promissor para restaurar a testosterona livre e reduzir hormônios do estresse.</p>
+                    <div class="chart-container" style="height: 240px;">
+                        <canvas id="tongkatChart"></canvas>
+                    </div>
+                    <p class="mt-3 text-xs text-gray-500 text-center">Atua na biodisponibilidade hormonal e vigor físico.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ENERGIA E DISPOSIÇÃO -->
+        <section id="energy" class="mb-16">
+            <h2 class="text-3xl section-title text-center mb-8">Foco: Energia e Disposição</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-4 highlight-text">Pó de Beterraba e a Via do Óxido Nítrico</h3>
+                    <p class="text-gray-600 text-sm mb-6">O nitrato da beterraba é convertido em óxido nítrico (NO), promovendo vasodilatação, oxigenação muscular e resistência à fadiga.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <span class="text-2xl mr-4">🌿</span>
+                            <div>
+                                <h4 class="font-bold text-sm">1. Consumo de Nitrato (NO₃⁻)</h4>
+                                <p class="text-xs text-gray-500">Ingerido 90 a 180 minutos antes do treino.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <span class="text-2xl mr-4">👅</span>
+                            <div>
+                                <h4 class="font-bold text-sm">2. Conversão a Nitrito (NO₂⁻)</h4>
+                                <p class="text-xs text-gray-500">Bactérias da saliva realizam a conversão (evite enxaguante bucal).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <span class="text-2xl mr-4">💪</span>
+                            <div>
+                                <h4 class="font-bold text-sm">3. Produção de Óxido Nítrico (NO)</h4>
+                                <p class="text-xs text-gray-500">Absorção sistêmica e ação nos vasos sanguíneos.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-teal-50 p-3 rounded-lg border border-teal-200">
+                            <span class="text-2xl mr-4">🚀</span>
+                            <div>
+                                <h4 class="font-bold text-sm text-teal-900">4. Vasodilatação e Performance</h4>
+                                <p class="text-xs text-teal-700">Maior entrega de oxigênio, nutrientes e ressíntese de ATP.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-4 highlight-text">Mel: Energia Rápida e Sustentada</h3>
+                    <p class="text-gray-600 text-sm mb-4">A matriz natural de glicose e frutose do mel garante liberação energética gradual, evitando a hipoglicemia de rebote comum em açúcares refinados.</p>
+                    <div class="chart-container" style="height: 280px;">
+                        <canvas id="honeyChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-xs text-gray-500 text-center">Ideal no pré-treino para energia imediata e no pós-treino para reposição de glicogênio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTROLE DO ESTRESSE E FADIGA -->
+        <section id="stress" class="mb-16">
+            <h2 class="text-3xl section-title text-center mb-2">Foco: Controle do Estresse e Fadiga</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8 text-balance">Comparativo funcional dos principais adaptógenos em cinco dimensões de recuperação e bem-estar.</p>
+            <div class="card">
+                <div class="chart-container" style="height: 360px;">
+                    <canvas id="adaptogenChart"></canvas>
+                </div>
+                <p class="mt-4 text-xs text-gray-500 text-center">Ashwagandha lidera na redução de cortisol e sono; Ginseng Coreano destaca-se na fadiga física/mental; Tongkat Ali apoia o vigor e a libido.</p>
+            </div>
+        </section>
+
+        <!-- TIMING DE CONSUMO -->
+        <section id="timing" class="mb-16">
+            <h2 class="text-3xl section-title text-center mb-8">Timing é Tudo: Quando Consumir?</h2>
+            <div class="card">
+                <div class="relative pl-8 border-l-2 border-dashed border-gray-300">
+                    <div class="mb-8 timeline-item">
+                        <h3 class="text-xl font-bold highlight-text mb-1">Pré-Treino (30-180 min antes)</h3>
+                        <p class="text-sm font-semibold text-gray-700">Objetivo: Energia, Foco e Fluxo Sanguíneo</p>
+                        <ul class="list-disc list-inside text-gray-600 text-sm mt-2 space-y-1">
+                            <li><b>Pó de Beterraba:</b> 90-180 min antes para pico de óxido nítrico.</li>
+                            <li><b>Mel:</b> 15-30 min antes para glicose sanguínea disponível.</li>
+                            <li><b>Ginseng Coreano & Maca Preta:</b> 30-60 min antes para resistência física e foco.</li>
+                        </ul>
+                    </div>
+                    <div class="mb-8 timeline-item">
+                        <h3 class="text-xl font-bold highlight-text mb-1">Pós-Treino (Até 30 min depois)</h3>
+                        <p class="text-sm font-semibold text-gray-700">Objetivo: Recuperação, Anabolismo e Controle de Cortisol</p>
+                        <ul class="list-disc list-inside text-gray-600 text-sm mt-2 space-y-1">
+                            <li><b>Mel:</b> Reposição rápida de glicogênio (excelente combinado com Whey/Proteínas).</li>
+                            <li><b>Ashwagandha:</b> Redução do cortisol pós-esforço e suporte à síntese proteica.</li>
+                            <li><b>Feno Grego:</b> Junto à refeição pós-treino para otimizar a captação de nutrientes.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-xl font-bold highlight-text mb-1">Manutenção Diária</h3>
+                        <p class="text-sm font-semibold text-gray-700">Objetivo: Equilíbrio Hormonal, Imunidade e Saúde Intestinal</p>
+                        <ul class="list-disc list-inside text-gray-600 text-sm mt-2 space-y-1">
+                            <li><b>Ashwagandha:</b> À noite para qualidade do sono ou manhã para ansiedade.</li>
+                            <li><b>Tongkat Ali:</b> Pela manhã para acompanhar o ciclo circadiano da testosterona.</li>
+                            <li><b>Cogumelos (Shiitake/Maitake) e Moringa:</b> Com as refeições para suporte imune e antioxidante.</li>
+                            <li><b>Psyllium, Funcho e Malva:</b> Ao longo do dia para saúde digestiva e absorção nutricional.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEGURANÇA EM PRIMEIRO LUGAR -->
+        <section id="safety" class="mb-16">
+            <h2 class="text-3xl section-title text-center mb-8">Segurança em Primeiro Lugar</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card warning-card">
+                    <h3 class="text-lg font-bold text-red-700 mb-2">Cuidado com Evidências Limitadas</h3>
+                    <p class="text-red-800 text-sm">Produtos naturais como 🌿Safed Musli, 🌿Catuaba e 🌿Fadogia Agrestis carecem de estudos clínicos robustos em humanos. O uso exige cautela e supervisão médica.</p>
+                </div>
+                <div class="card warning-card">
+                    <h3 class="text-lg font-bold text-red-700 mb-2">Ineficaz Para Hipertrofia</h3>
+                    <p class="text-red-800 text-sm">Apesar da fama comercial, 🌿Tribulus Terrestris demonstrou ser ineficaz para elevar a testosterona ou promover ganho de massa muscular em humanos.</p>
+                </div>
+                <div class="card warning-card">
+                    <h3 class="text-lg font-bold text-red-700 mb-2">Interações Medicamentosas</h3>
+                    <p class="text-red-800 text-sm">🌿Ginseng, 🌿Feno Grego e 🌿Ginkgo Biloba interagem com anticoagulantes, anti-hipertensivos e hipoglicemiantes. Consulte sempre um médico.</p>
+                </div>
+                <div class="card warning-card">
+                    <h3 class="text-lg font-bold text-red-700 mb-2">Pureza e Contaminação</h3>
+                    <p class="text-red-800 text-sm">Extratos de 🌿Tongkat Ali sem certificação podem conter metais pesados. Priorize marcas auditadas por laboratórios independentes (USP, NSF).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUADROS DE ANÁLISE DETALHADA DE EFICÁCIA E ORIGEM -->
+        <section id="detailed-efficacy" class="mb-16">
+            <h2 class="text-3xl section-title text-center mb-2">Análise Detalhada de Eficácia e Segurança</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8 text-balance">Comprovação científica detalhada por área de atuação e origem geográfica de cada produto analisado.</p>
+
+            <div class="grid grid-cols-1 gap-6">
+                <!-- Shiitake -->
+                <div class="card overflow-hidden">
+                    <h3 class="text-lg font-bold mb-3 highlight-text">Cogumelo Shiitake (<i>Lentinula edodes</i>), originário da Ásia Oriental</h3>
+                    <div class="overflow-x-auto">
+                        <table class="efficacy-table w-full">
+                            <thead><tr><th>Área</th><th>Benefício / Uso Reportado</th><th>Eficácia / Evidência</th></tr></thead>
+                            <tbody>
+                                <tr><td>Massa Muscular e Energia</td><td>Rico em proteínas, leucina, vitaminas B e cobre; apoia o reparo muscular e metabolismo energético.</td><td class="font-semibold text-green-600">Eficaz (Suporte Nutricional)</td></tr>
+                                <tr><td>Imunidade e Colesterol</td><td>Polissacarídeos (lentinanas) fortalecem a imunidade; eritadenina auxilia na redução do colesterol.</td><td class="font-semibold text-green-600">Eficaz</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Maitake -->
+                <div class="card overflow-hidden">
+                    <h3 class="text-lg font-bold mb-3 highlight-text">Cogumelo Maitake (<i>Grifola frondosa</i>), originário da Ásia (Japão/China)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="efficacy-table w-full">
+                            <thead><tr><th>Área</th><th>Benefício / Uso Reportado</th><th>Eficácia / Evidência</th></tr></thead>
+                            <tbody>
+                                <tr><td>Imunidade e Glicemia</td><td>Beta-glucanos modulam células de defesa (NK) e melhoram a sensibilidade à insulina.</td><td class="font-semibold text-green-600">Eficaz</td></tr>
+                                <tr><td>Vitalidade e Fadiga</td><td>Ação adaptogênica que auxilia no equilíbrio físico durante períodos de estresse.</td><td class="font-semibold text-yellow-600">Evidência Moderada</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Moringa -->
+                <div class="card overflow-hidden">
+                    <h3 class="text-lg font-bold mb-3 highlight-text">Moringa Oleífera (<i>Moringa oleifera</i>), nativa do Norte da Índia</h3>
+                    <div class="overflow-x-auto">
+                        <table class="efficacy-table w-full">
+                            <thead><tr><th>Área</th><th>Benefício / Uso Reportado</th><th>Eficácia / Evidência</th></tr></thead>
+                            <tbody>
+                                <tr><td>Ação Antioxidante e Nutricional</td><td>Mais de 90 compostos bioativos; densa em vitaminas (A, B, C), ferro e magnésio; reduz glicemia.</td><td class="font-semibold text-green-600">Eficaz</td></tr>
+                                <tr><td>Ganho de Massa Direto</td><td>Não possui efeito anabólico direto, atuando apenas na recuperação inflamatória e nutricional.</td><td class="font-semibold text-gray-500">Indireto / Não Aplicável</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tongkat Ali -->
+                <div class="card overflow-hidden">
+                    <h3 class="text-lg font-bold mb-3 highlight-text">Tongkat Ali (<i>Eurycoma longifolia</i>), nativa do Sudeste Asiático</h3>
+                    <div class="overflow-x-auto">
+                        <table class="efficacy-table w-full">
+                            <thead><tr><th>Área</th><th>Benefício / Uso Reportado</th><th>Eficácia / Evidência</th></tr></thead>
+                            <tbody>
+                                <tr><td>Testosterona, Força e Libido</td><td>Extratos padronizados (200-400 mg) restauram níveis de testosterona e apoiam a força muscular.</td><td class="font-semibold text-green-600">Eficaz (Evidência Promissora)</td></tr>
+                                <tr><td>Estresse e Cortisol</td><td>Reduz significativamente o cortisol salivar (-16% em ensaios clínicos) e melhora o humor.</td><td class="font-semibold text-green-600">Eficaz</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tribulus Terrestris -->
+                <div class="card overflow-hidden">
+                    <h3 class="text-lg font-bold mb-3 highlight-text">Tribulus Terrestris (<i>Tribulus terrestris</i>), nativa de regiões quentes da Eurásia e África</h3>
+                    <div class="overflow-x-auto">
+                        <table class="efficacy-table w-full">
+                            <thead><tr><th>Área</th><th>Benefício / Uso Reportado</th><th>Eficácia / Evidência</th></tr></thead>
+                            <tbody>
+                                <tr><td>Desejo Sexual / Libido</td><td>Melhora a satisfação e o desejo sexual em homens e mulheres com baixa libido.</td><td class="font-semibold text-green-600">Eficaz</td></tr>
+                                <tr><td>Testosterona e Massa Muscular</td><td>Ensaios clínicos em humanos comprovam que não eleva a testosterona nem gera hipertrofia.</td><td class="font-semibold text-red-600">Ineficaz (Comprovado)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Safed Musli, Catuaba e Fadogia Agrestis -->
+                <div class="card overflow-hidden">
+                    <h3 class="text-lg font-bold mb-3 highlight-text">Safed Musli (Índia), Catuaba (Brasil) e Fadogia Agrestis (Nigéria)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="efficacy-table w-full">
+                            <thead><tr><th>Produto e Origem</th><th>Uso Reportado</th><th>Eficácia / Evidência em Humanos</th></tr></thead>
+                            <tbody>
+                                <tr><td><b>Safed Musli</b> (<i>C. borivilianum</i> - Índia)</td><td>Tônico ayurvédico para vitalidade, força e libido.</td><td class="font-semibold text-red-600">Evidência Insuficiente em Humanos</td></tr>
+                                <tr><td><b>Catuaba</b> (<i>T. catigua</i> - Brasil)</td><td>Estimulante tradicional para fadiga e libido.</td><td class="font-semibold text-red-600">Evidência Insuficiente / Sem Dados de Segurança</td></tr>
+                                <tr><td><b>Fadogia Agrestis</b> (Nigéria)</td><td>Alegação de estímulo de LH e testosterona (apenas em roedores).</td><td class="font-semibold text-red-600">Não Comprovado / Risco de Toxicidade</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Ginkgo Biloba e Burdock -->
+                <div class="card overflow-hidden">
+                    <h3 class="text-lg font-bold mb-3 highlight-text">Ginkgo Biloba (China Antiga) e Raiz de Burdock / Bardana (Europa e Ásia)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="efficacy-table w-full">
+                            <thead><tr><th>Produto e Origem</th><th>Uso Reportado</th><th>Eficácia / Evidência para Performance</th></tr></thead>
+                            <tbody>
+                                <tr><td><b>Ginkgo Biloba</b> (China)</td><td>Circulação cerebral e cognição em longo prazo.</td><td class="font-semibold text-gray-500">Sem Efeito Muscular / Alto Risco de Interação</td></tr>
+                                <tr><td><b>Raiz de Burdock</b> (<i>A. lappa</i> - Eurásia)</td><td>Antioxidante, depurativo tradicional e saúde da pele.</td><td class="font-semibold text-gray-500">Indireto / Sem Evidência Ergogênica Humana</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFERENCIAL TEÓRICO RESUMIDO E EXPANSÍVEL -->
+        <section id="theoretical-reference-section" class="mb-16">
+            <h2 class="text-3xl section-title text-center mb-6">Referencial Teórico e Metodologia</h2>
+            <div class="text-center mb-6">
+                <button id="toggle-theoretical-reference" onclick="toggleTheory()" class="inline-flex items-center bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 cursor-pointer">
+                    📖 Expandir Referencial Teórico
+                </button>
+            </div>
+
+            <div id="theoretical-content" class="hidden card p-6 md:p-8 text-gray-700 space-y-6 border border-blue-100">
+                <div>
+                    <h3 class="text-xl font-bold highlight-text mb-2">1. Síntese Fisiológica por Objetivo</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mt-3">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-gray-900 mb-1">Hipertrofia e Força</h4>
+                            <p>A <b>Ashwagandha</b> (300–600 mg/dia) e o <b>Feno Grego</b> (500–600 mg/dia) possuem os melhores ensaios clínicos combinados ao treino de força, atuando na redução do catabolismo (cortisol) e manutenção da testosterona livre. O <b>Shiitake</b> entra como suporte proteico rico em leucina.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-gray-900 mb-1">Energia e Vasodilatação</h4>
+                            <p>O <b>Pó/Suco de Beterraba</b> fornece nitratos (6–8 mmol) que ampliam a vasodilatação via Óxido Nítrico, poupando fosfocreatina. O <b>Mel</b> fornece matriz dual de carboidratos (glicose + frutose) para manter a glicemia estável intra-treino e acelerar a síntese de glicogênio pós-treino.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-gray-900 mb-1">Modulação de Estresse e Saúde</h4>
+                            <p>Adaptógenos como <b>Ginseng Coreano</b> (1–2 g/dia), <b>Maca Peruana Preta</b> (1.5–3 g/dia) e <b>Tongkat Ali</b> (200–400 mg/dia) mitigam a fadiga central. <b>Psyllium</b>, <b>Funcho</b> e <b>Malva</b> otimizam o trânsito intestinal e a integridade da mucosa, garantindo a absorção adequada de macronutrientes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold highlight-text mb-2">2. Sinergias Recomendadas (Combinações Seguras)</h3>
+                    <ul class="list-disc list-inside text-sm space-y-1">
+                        <li><b>Combo Pré-Treino Ergogênico:</b> Pó de Beterraba + Mel + Maca Peruana Preta (fluxo sanguíneo + substrato energético + estamina sem excesso de estimulantes).</li>
+                        <li><b>Combo Recuperação e Anabolismo:</b> Ashwagandha + Feno Grego + Tongkat Ali (controle de cortisol + suporte hormonal).</li>
+                        <li><b>Combo Imunidade e Longevidade Atlética:</b> Cogumelo Shiitake + Cogumelo Maitake + Moringa Oleífera (beta-glucanos + micronutrientes antioxidantes).</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold highlight-text mb-2">3. Principais Fontes e Bases Científicas</h3>
+                    <p class="text-xs text-gray-600 mb-2">Dados compilados a partir de revisões sistemáticas, monografias clínicas e diretrizes de segurança suplementar:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div>• <b>NCCIH / NIH (National Institutes of Health):</b> Monografias clínicas de <i>Withania somnifera</i>, <i>Panax ginseng</i>, <i>Ginkgo biloba</i>, <i>Moringa oleifera</i>, <i>Trigonella foenum-graecum</i> e <i>Tribulus terrestris</i>.</div>
+                        <div>• <b>Examine.com & PubMed Database:</b> Revisões sistemáticas sobre Nitrato de Beterraba (<i>Beta vulgaris</i>), <i>Eurycoma longifolia</i> (Tongkat Ali), <i>Lepidium meyenii</i> (Maca Preta) e <i>Fadogia agrestis</i>.</div>
+                        <div>• <b>EFSA (European Food Safety Authority):</b> Relatórios toxicológicos e limites seguros para extratos herbais concentrados.</div>
+                        <div>• <b>RxList & WebMD Clinical Monographs:</b> Interações medicamentosas, farmacocinética e contraindicações de <i>Psyllium</i>, <i>Foeniculum vulgare</i>, <i>Malva sylvestris</i>, <i>Turnera diffusa</i> e <i>Arctium lappa</i>.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-gray-800 text-white text-center py-6 px-4">
+        <p>As informações neste infográfico são para fins educacionais e não substituem o aconselhamento médico profissional.</p>
+        <p class="text-sm text-gray-400 mt-2">Sempre consulte um médico ou nutricionista antes de iniciar qualquer regime de suplementação.</p>
+    </footer>
+    
+    <!-- SCRIPTS -->
+    <script>
+        // 1. Função isolada para o botão do Referencial Teórico (funciona independentemente dos gráficos)
+        function toggleTheory() {
+            const content = document.getElementById('theoretical-content');
+            const btn = document.getElementById('toggle-theoretical-reference');
+            if (!content || !btn) return;
+
+            content.classList.toggle('hidden');
+            if (content.classList.contains('hidden')) {
+                btn.innerHTML = '📖 Expandir Referencial Teórico';
+            } else {
+                btn.innerHTML = '📖 Recolher Referencial Teórico';
+            }
+        }
+
+        // 2. Inicialização segura dos gráficos
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                if (typeof ChartDataLabels !== 'undefined') {
+                    Chart.register(ChartDataLabels);
+                }
+
+                const colorPalette = {
+                    primary: '#005f73',
+                    secondary: '#0a9396',
+                    accent: '#ca8a04',
+                    text: '#001219',
+                    positive: 'rgba(10, 147, 150, 0.75)',
+                    neutral: 'rgba(233, 216, 166, 0.85)',
+                    negative: 'rgba(174, 32, 18, 0.75)'
+                };
+
+                const defaultOptions = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: colorPalette.text, font: { family: "'Poppins', sans-serif" } }
+                        },
+                        datalabels: { display: false }
+                    },
+                    scales: {
+                        x: { ticks: { color: colorPalette.text, font: { family: "'Poppins', sans-serif" } }, grid: { display: false } },
+                        y: { ticks: { color: colorPalette.text, font: { family: "'Poppins', sans-serif" } }, grid: { color: '#e5e7eb' } }
+                    }
+                };
+
+                const donutOptions = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: { color: colorPalette.text, font: { family: "'Poppins', sans-serif", size: 11 } }
+                        },
+                        datalabels: {
+                            display: true,
+                            formatter: (value, ctx) => {
+                                const dataArr = ctx.chart.data.datasets[0].data;
+                                const sum = dataArr.reduce((acc, val) => acc + val, 0);
+                                return Math.round((value * 100) / sum) + '%';
+                            },
+                            color: (ctx) => ctx.dataIndex === 0 ? '#ffffff' : '#001219',
+                            font: { weight: 'bold', size: 13, family: "'Poppins', sans-serif" }
+                        }
+                    }
+                };
+
+                // Gráfico 1: Barras Horizontais (Evidência)
+                new Chart(document.getElementById('evidenceChart').getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            'Ashwagandha', 'Pó de Beterraba', 'Mel', 'Ginseng Coreano',
+                            'Tongkat Ali', 'Feno Grego', 'Maca Peruana Preta', 'Cogumelo Shiitake',
+                            'Safed Musli', 'Fadogia Agrestis', 'Tribulus Terrestris'
+                        ],
+                        datasets: [{
+                            label: 'Nível de Evidência (0-10)',
+                            data: [9.5, 9.0, 8.5, 8.0, 7.5, 7.0, 6.5, 6.0, 4.0, 3.0, 2.0],
+                            backgroundColor: [
+                                colorPalette.positive, colorPalette.positive, colorPalette.positive, colorPalette.positive,
+                                colorPalette.neutral, colorPalette.neutral, colorPalette.neutral, colorPalette.neutral,
+                                colorPalette.negative, colorPalette.negative, colorPalette.negative
+                            ],
+                            borderColor: colorPalette.primary,
+                            borderWidth: 1,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        ...defaultOptions,
+                        indexAxis: 'y',
+                        scales: {
+                            x: { min: 0, max: 10, ticks: { color: colorPalette.text } },
+                            y: { ticks: { autoSkip: false, color: colorPalette.text } }
+                        }
+                    }
+                });
+
+                // Gráficos 2, 3 e 4: Rosca com Porcentagens (%)
+                new Chart(document.getElementById('ashwagandhaChart').getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Aumento de Força', 'Outros Fatores'],
+                        datasets: [{ data: [35, 65], backgroundColor: [colorPalette.primary, '#e2e8f0'], borderWidth: 2, borderColor: '#fff' }]
+                    },
+                    options: donutOptions
+                });
+
+                new Chart(document.getElementById('fenugreekChart').getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Melhora na Massa Magra', 'Outros Fatores'],
+                        datasets: [{ data: [25, 75], backgroundColor: [colorPalette.secondary, '#e2e8f0'], borderWidth: 2, borderColor: '#fff' }]
+                    },
+                    options: donutOptions
+                });
+
+                new Chart(document.getElementById('tongkatChart').getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Aumento de Testosterona', 'Outros Fatores'],
+                        datasets: [{ data: [20, 80], backgroundColor: [colorPalette.accent, '#e2e8f0'], borderWidth: 2, borderColor: '#fff' }]
+                    },
+                    options: donutOptions
+                });
+
+                // Gráfico 5: Linha (Curva do Mel)
+                new Chart(document.getElementById('honeyChart').getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['0min', '15min', '30min', '45min', '60min', '75min'],
+                        datasets: [
+                            {
+                                label: 'Energia do Mel',
+                                data: [0, 50, 80, 75, 65, 50],
+                                borderColor: colorPalette.primary,
+                                backgroundColor: 'rgba(0, 95, 115, 0.2)',
+                                fill: true,
+                                tension: 0.4
+                            },
+                            {
+                                label: 'Açúcar Simples',
+                                data: [0, 90, 40, 20, 10, 5],
+                                borderColor: '#9ca3af',
+                                backgroundColor: 'rgba(156, 163, 175, 0.15)',
+                                fill: true,
+                                tension: 0.4
+                            }
+                        ]
+                    },
+                    options: defaultOptions
+                });
+
+                // Gráfico 6: Radar (Adaptógenos)
+                new Chart(document.getElementById('adaptogenChart').getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: ['Redução de Cortisol', 'Melhora do Sono', 'Energia/Anti-Fadiga', 'Melhora do Humor', 'Suporte à Libido'],
+                        datasets: [
+                            {
+                                label: 'Ashwagandha',
+                                data: [9, 8, 7, 7, 8],
+                                fill: true,
+                                backgroundColor: 'rgba(0, 95, 115, 0.2)',
+                                borderColor: colorPalette.primary,
+                                pointBackgroundColor: colorPalette.primary
+                            },
+                            {
+                                label: 'Ginseng Coreano',
+                                data: [6, 5, 9, 8, 7],
+                                fill: true,
+                                backgroundColor: 'rgba(10, 147, 150, 0.2)',
+                                borderColor: colorPalette.secondary,
+                                pointBackgroundColor: colorPalette.secondary
+                            },
+                            {
+                                label: 'Tongkat Ali',
+                                data: [7, 6, 8, 7, 9],
+                                fill: true,
+                                backgroundColor: 'rgba(202, 138, 4, 0.25)',
+                                borderColor: colorPalette.accent,
+                                pointBackgroundColor: colorPalette.accent
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { labels: { color: colorPalette.text, font: { family: "'Poppins', sans-serif" } } },
+                            datalabels: { display: false }
+                        },
+                        scales: {
+                            r: {
+                                min: 0,
+                                max: 10,
+                                angleLines: { color: '#d1d5db' },
+                                grid: { color: '#e5e7eb' },
+                                pointLabels: { font: { size: 11, family: "'Poppins', sans-serif" }, color: colorPalette.text },
+                                ticks: { backdropColor: 'transparent', color: colorPalette.text }
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Erro ao inicializar os gráficos:', error);
+            }
+        });
+    </script>
+</body>
+</html>
